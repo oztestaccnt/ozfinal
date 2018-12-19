@@ -1,0 +1,41 @@
+﻿@*@model FormData.Models.Customer*@
+
+@model IEnumerable<FormData.Models.Customer>
+
+@{
+    ViewBag.Title = "Customer";
+}
+
+<h1>Customer Information</h1>
+
+<dir>
+    <h3>Please enter your information below</h3>
+</dir>
+
+<form action="@Url.Action("OrderForm", "Assignments")" method="post">
+    <table class="table table-bordered table-responsive table-striped table-hover">
+
+        <tbody>
+            <tr>
+                <td>
+                    <label>First Name</label>
+                    <p></p>
+                    <input type="text" name="fName" placeholder="First Name ..." />
+                    <br />
+                    <br />
+                    <label>Last Name</label>
+                    <p></p>
+                    <input type="text" name="lName" placeholder="Last Name ..." />
+                    <br />
+                    <br />
+                    <label>Shipping address</label>
+                    <p></p>
+                    <input type="text" class="" name="shipAdd" placeholder="Shipping address ..." />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-default">Next Page</button>
+</form>
+
+

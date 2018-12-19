@@ -1,0 +1,24 @@
+﻿
+
+@{
+    ViewBag.Title = "BirthdayResults";
+}
+
+<h2>Results</h2>
+
+
+<p>Thanks @ViewBag.ResultName</p>
+Your birthday is @ViewBag.ResultBD
+
+You have selected the following balloons:
+
+<ul>
+    @{
+
+        foreach (var balloon in ViewBag.BalloonList)
+        {
+            <li style="color:@balloon">@balloon</li>
+        }
+
+    }
+</ul>

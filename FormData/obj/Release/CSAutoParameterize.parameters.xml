@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="NorthwndEntities-Web.config Connection String" description="NorthwndEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/NorthwndModel.csdl|res://*/NorthwndModel.ssdl|res://*/NorthwndModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=bitsql.wctc.edu;initial catalog=northwnd-10098-EB;user id=ebobalo;password=000506110;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\oztes\\Desktop\\Final_final\\FormData\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='NorthwndEntities']/@connectionString" />
+  </parameter>
+</parameters>

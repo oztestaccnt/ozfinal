@@ -1,0 +1,80 @@
+﻿@model FormData.Controllers.HomeModel
+
+
+@{
+    ViewBag.Title = "Northwind";
+}
+
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                toastr.success('You are successfully signed in')
+            })
+     </script>
+
+    //<div>Message: @Model.Message</div>
+}
+
+
+
+
+<div class="container">
+    <div class="jumbotron">
+        @*<div>*@
+        <h1>N<i class="glyphicon glyphicon-globe"></i>rthwind</h1>
+        @*<h1 id="mainTxTitle"> Northwind</h1>*@
+        <p> We have the best prices and selection of high quality foods & beverages on the planet!</p>
+        <p> Check out featured discounts below!</p>
+        <button class="btn btn-primary" onclick="location.href='@Url.Action("CustomerModel", "Assignments")'"><b>Place your order now ></b></button>
+
+    </div>
+
+    <!--Grid System-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-3">
+                <h3>Tis the Seasoning</h3>
+                <hr />
+                <p>Order today! Save 12.5% on Chef Anton's Italian Seasoning. You don't want to make Chef Anton mad, do you?</p>
+                <br />
+                <p><i>Discount Expires: 12/14/2016</i></p>
+                <button type="button" class="btn btn-default">Discount Code</button>
+                <br />
+                <p />
+            </div>
+
+            <div class="col-md-4 col-md-3 col-sm-3 ">
+                <h3>Go Green</h3>
+                <hr />
+                <p>Genen Shouyu goes on sale very rarely. Order now to save 10% off our already low price.</p>
+                <br />
+                <br />
+                <p><i>Discount Expires: 12/14/2016</i></p>
+                <button type="button" class="btn btn-default">Discount Code</button>
+                <br />
+                <p />
+            </div>
+
+            <div class="col-md-4 col-md-3 col-sm-3 col-xs-1">
+                <h3>Half Price</h3>
+                <hr />
+                <p>Just because you can't pronounce "Schoggi Schokolade" doesn't mean you should buy it.</p>
+                <p>Get now for 50% off!</p>
+                <br />
+                <p><i>Discount Expires: 12/14/2016</i></p>
+                <button type="button" class="btn btn-default">Discount Code</button>
+                <br />
+                <p />
+            </div>
+        </div>
+    </div>
+
+</div>

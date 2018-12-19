@@ -1,0 +1,130 @@
+﻿
+@model IEnumerable<object>
+
+@{
+    List<FormData.Models.Customer> lstCust = Model.ToList()[0] as List<FormData.Models.Customer>;
+    List<FormData.Models.Product> lstOrder = Model.ToList()[1] as List<FormData.Models.Product>;
+}
+
+@{
+    ViewBag.Title = "OrderForm";
+}
+
+<h2>Order Form</h2>
+
+
+<form action="@Url.Action("ProcessOrder", "Assignments")" method="post">
+    <h2>
+        Hi
+    </h2>
+    <h3>
+        <apan id="id_fName" name="id_fName">@lstCust[0].FName</apan>
+        <input hidden="hidden" name="id_fName" value="@lstCust[0].FName" />
+
+        <span id="id_lName" name="id_lName">@lstCust[0].LName</span>
+        <input hidden="hidden" name="id_lName" value="@lstCust[0].LName" />
+
+    </h3>
+    <h3>
+        Make your selection please
+    </h3>
+
+    @*@foreach (var item in lstCust)
+        {
+            <h3>
+                @Html.DisplayFor(m => item.FName) @Html.DisplayFor(m => item.LName)
+            </h3>
+            <p>Please make your selections.</p>
+        }*@
+
+    <table class="table table-bordered table-responsive table-striped table-hover">
+
+        <thead>
+            <tr bgcolor="#b3b3cc">
+                <th>Product</th>
+                <th>Price</th>
+                <th style="width:15%">Quantity</th>
+                <th class="hidden">Subtotal</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in lstOrder)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td id="price_@item.Id">
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <input type="number" name="@item.Id" id="@item.Id" class="form-control qty" value="0" />
+                    </td>
+                    <td class="hidden" id="subtotal_@item.Id">
+                        0.00
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+        <tfoot class="hidden">
+            <tr>
+                <th colspan="3">Total</th>
+                <th id="total">0.00</th>
+            </tr>
+        </tfoot>
+
+    </table>
+
+    <p>
+        Your shipping address is:
+    </p>
+    <h2>
+        <span id="id_address" name="id_address">@lstCust[0].Address</span>
+        <input hidden="hidden" name="id_address" value="@lstCust[0].Address" />
+    </h2>
+
+
+    @*<button type="submit" class="btn btn-default" id="btnCl">Submit Order</button>*@
+    <input type="submit" name="" value="Submit Order" id="btnCl" />
+</form>
+
+
+
+@section scripts{
+    <script>
+        //$(function () {
+        //    alert("Heloo!");
+        //});
+
+        // saving and returning values to the controller
+
+        $(function () {
+
+            // function below will hide a colome with subtotal when java script is off in a browser
+            $('.hidden').removeClass('hidden');
+
+            $('.qty').each(function () {
+                $('#' + this.id).val('0');
+            });
+
+            $('.qty').change(function () {
+                var qty = $('#' + this.id).val();
+                var price = $('#price_' + this.id).html();
+                $('#subtotal_' + this.id).html((qty * price).toFixed(2));
+
+                var total = 0;
+                $('.qty').each(function () {
+                    total += Number($('#subtotal_' + this.id).html());
+                });
+
+                $('#total').html(total.toFixed(2));
+
+            });
+        });
+
+
+    </script>
+}

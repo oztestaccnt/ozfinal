@@ -1,0 +1,55 @@
+﻿@*@using FormData.Models
+    @model IEnumerable<FormData.Models.Order>*@
+
+@model IEnumerable<object>
+
+@{
+    List<FormData.Models.Customer> lstCust = Model.ToList()[0] as List<FormData.Models.Customer>;
+    List<FormData.Models.Order> lstOrder = Model.ToList()[1] as List<FormData.Models.Order>;
+}
+
+
+@{
+    ViewBag.Title = "ProcessOrder";
+    double total = 0;
+}
+
+<h3>
+    Thanks for your order
+</h3>
+
+@foreach (var item in lstCust)
+{
+    <h4>
+        <b>@Html.DisplayFor(modelItem => item.FName) @Html.DisplayFor(modelItem => item.LName)</b>
+
+    </h4>
+}
+<h4> Your shipping address is:</h4>
+@foreach (var item in lstCust)
+{
+    <b>@Html.DisplayFor(modelItem => item.Address)</b>
+}
+
+<br />
+<br />
+<p>
+    <b>Your order items are:</b>
+    <br />
+    <br />
+
+    @foreach (var item in lstOrder)
+    {
+        <ui>@string.Format("{0} - quantity {1}", item.Prod.Name, item.Qty)</ui>
+        <br />
+
+        total += item.Prod.Price * item.Qty;
+
+    }
+    <br />
+    <b>Total is @total.ToString("C")</b>
+    <dir>
+<p>
+    As soon as we receive the payment for <b>@total.ToString("C")</b>
+    we will send your order.
+</p>

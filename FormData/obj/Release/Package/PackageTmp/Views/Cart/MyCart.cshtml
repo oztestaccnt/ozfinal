@@ -1,0 +1,54 @@
+﻿@using FormData.Models
+@model IEnumerable<FormData.Models.CartDTO>
+
+
+@{
+    ViewBag.Title = "MyCart";
+}
+
+@*@{
+        var data = (CartDTO)ViewData[""];
+    }*@
+
+@foreach (CartDTO data in Model)
+{
+    <h4>
+        <p>Customer Name:</p>
+        <p></p>
+        <b>@Html.DisplayFor(modelItem => data.CustomerName)</b>
+        <p></p>
+        <p>Company name:</p>
+        <p></p>
+        <b>@Html.DisplayFor(modelItem => data.CompanyName)</b>
+
+    </h4>
+    break;
+}
+
+<br />
+<br />
+<p>
+    <b>Your order items:</b>
+    <br />
+    <br />
+
+    @foreach (CartDTO i in Model)
+    {
+        <ui>@string.Format("{0} - quantity {1}", i.ProductName, i.Quantity)</ui>
+        <br />
+
+    }
+    <br />
+    @{ decimal? total = 0;}
+    @foreach (CartDTO i in Model)
+    {
+        total += i.Total;
+    }
+
+    <b>Total is @string.Format("{0:n2}", total)</b>
+
+
+    <a style="float:right;" href="@Url.Action("Checkout","Checkout")" class="btn bottom-right btn-default">Check out</a>
+
+
+

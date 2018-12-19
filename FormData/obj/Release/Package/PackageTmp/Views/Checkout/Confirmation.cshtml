@@ -1,0 +1,50 @@
+﻿@*@using FormData.DataLayer*@
+@model IEnumerable<FormData.Models.CartDTO>
+@using FormData.Models
+
+@{
+    ViewBag.Title = "Confirmation";
+}
+
+<h3>
+    Thanks for your order
+</h3>
+
+<h4> Your shipping address is:</h4>
+@foreach (CartDTO item in Model)
+{
+    <b>@Html.DisplayFor(c => item.Address)</b>
+    <p></p>
+    <b>@Html.DisplayFor(c => item.City)</b>
+    <p></p>
+    <b>@Html.DisplayFor(c => item.PostalCode)</b>
+    break;
+}
+
+<br />
+<br />
+<p>
+    <b>Your order items are:</b>
+    <br />
+    <br />
+
+    @foreach (CartDTO item in Model)
+    {
+        <ui>@string.Format("{0} - {1}", item.ProductName, item.Quantity)</ui>
+        <br />
+    }
+    <br />@{ decimal? total = 0;}
+    @foreach (CartDTO i in Model)
+    {
+        total += i.Total;
+    }
+
+    <b>Total is @string.Format("{0:n2}", total)</b>
+
+    @foreach (CartDTO data in Model)
+    {
+    <p>
+        Conformation email was send to @data.EmailAddress
+    </p>
+        break;
+    }

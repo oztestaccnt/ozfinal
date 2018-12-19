@@ -1,0 +1,53 @@
+﻿@*@using System.Web.UI.WebControls*@
+
+
+@{
+    ViewBag.Title = "Assignment9";
+}
+
+
+<h3>Assignment 9</h3>
+<h2>Color Selection</h2>
+
+<p>Your First selected color: @ViewBag.Select_1</p>
+<p>Your Second selected color: @ViewBag.Select_2</p>
+
+<form role="form" method="post" action="@Url.Action("Assignment9", "Assignments")">
+    <div class="form-group">
+        @Html.Label("col1", "First color")
+        <select class="form-control" id="col1" name="col1">
+
+            @{
+                foreach (var cl1 in ViewBag.Color_1)
+                {
+                    <option>@cl1</option>
+                }
+            }
+
+        </select>
+    </div>
+    <div class="form-group">
+
+        @Html.Label("col2", "Second color");
+        <select class="form-control" id="col2" name="col2">
+            @{
+                foreach (var cl2 in ViewBag.Color_2)
+                {
+                    <option>@cl2</option>
+                }
+            }
+        </select>
+
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+
+    @*style="color:@ViewBag.Output"*@
+
+    <p>Your output:</p>
+    <h2 style="color:@ViewBag.Output"><b>@ViewBag.Output</b></h2>
+
+</form>
+
+
+
+

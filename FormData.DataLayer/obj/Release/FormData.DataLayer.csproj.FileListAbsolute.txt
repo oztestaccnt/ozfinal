@@ -1,0 +1,12 @@
+C:\Users\oztes\Desktop\Final_final\FormData.DataLayer\bin\Release\FormData.DataLayer.dll.config
+C:\Users\oztes\Desktop\Final_final\FormData.DataLayer\bin\Release\FormData.DataLayer.dll
+C:\Users\oztes\Desktop\Final_final\FormData.DataLayer\bin\Release\FormData.DataLayer.pdb
+C:\Users\oztes\Desktop\Final_final\FormData.DataLayer\bin\Release\EntityFramework.dll
+C:\Users\oztes\Desktop\Final_final\FormData.DataLayer\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\oztes\Desktop\Final_final\FormData.DataLayer\bin\Release\EntityFramework.xml
+C:\Users\oztes\Desktop\Final_final\FormData.DataLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\oztes\Desktop\Final_final\FormData.DataLayer\obj\Release\FormData.DataLayer.csprojAssemblyReference.cache
+C:\Users\oztes\Desktop\Final_final\FormData.DataLayer\obj\Release\FormData.DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\oztes\Desktop\Final_final\FormData.DataLayer\obj\Release\FormData.DataLayer.csproj.CopyComplete
+C:\Users\oztes\Desktop\Final_final\FormData.DataLayer\obj\Release\FormData.DataLayer.dll
+C:\Users\oztes\Desktop\Final_final\FormData.DataLayer\obj\Release\FormData.DataLayer.pdb
